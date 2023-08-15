@@ -12,26 +12,10 @@ import com.example.notesapp.data.local.database.model.Note
 
 @Database(entities = [Note::class], version = 1)
 abstract class AppDatabase : RoomDatabase(){
-    //Injetar a DAO, como um singleton
     abstract fun taskDao(): NoteDao
 
     companion object {
-
-        private const val DATABASE_NAME: String = "nome-do-banco-de-dados"
-
-        @Volatile
-        private var INSTANCE: AppDatabase? = null
-
-        fun getInstance(context: Context): AppDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
-            }
-
-        private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(
-                context.applicationContext,
-                AppDatabase::class.java, DATABASE_NAME
-            ).build()
+        const val DATABASE_NAME: String = "notes-app-db"
     }
 
     override fun clearAllTables() {

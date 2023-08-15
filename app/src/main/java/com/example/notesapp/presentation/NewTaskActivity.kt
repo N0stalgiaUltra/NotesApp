@@ -20,6 +20,8 @@ class NewTaskActivity : AppCompatActivity() {
     private lateinit var database: AppDatabase
     private lateinit var noteDao: NoteDao
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewTaskBinding.inflate(layoutInflater)

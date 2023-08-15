@@ -13,4 +13,8 @@ interface NoteDao {
 
     @Query("SELECT COUNT(note_id) FROM Note")
     suspend fun getAllItems() : Long
+
+    @Query("SELECT * FROM Note")
+    suspend fun getAllNotes() : List<Note>
+
 }
