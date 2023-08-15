@@ -16,4 +16,7 @@ class MainViewModel(private val dao: NoteDao): ViewModel() {
         _notesList.postValue(notes)
     }
 
+    suspend fun addNote(text: String){
+        dao.insertTask(Note(text))
+    }
 }

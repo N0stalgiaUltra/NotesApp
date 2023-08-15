@@ -13,13 +13,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewTaskActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNewTaskBinding
-//    private lateinit var database: AppDatabase
-//    private lateinit var noteDao: NoteDao
-
+    private val mainViewModel: MainViewModel by viewModel()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,29 +26,25 @@ class NewTaskActivity : AppCompatActivity() {
         binding = ActivityNewTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        this.database = AppDatabase.getInstance(this)
-//        this.noteDao = this.database.taskDao()
     }
 
     override fun onStart() {
         super.onStart()
 
-//        this.binding.btnCreateNote.setOnClickListener {
-//            CoroutineScope(Dispatchers.IO).launch {
-//                val result = saveNote(
-//                    binding.etNoteName.text.toString()
-//                )
-//
-//                withContext(Dispatchers.Main){
-//                    Toast.makeText(this@NewTaskActivity,
-//                        "Create Note", Toast.LENGTH_SHORT)
-//                }
-//            }
-//        }
+        this.binding.btnCreateNote.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                val result = mainViewModel.addNote(
+                    binding.etNoteName.text.toString()
+                )
+
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@NewTaskActivity,
+                        "Create Note", Toast.LENGTH_SHORT)
+                    finish()
+                }
+
+            }
+        }
     }
 
-//    private suspend fun saveNote(noteText: String){
-//        noteDao.insertTask(Note(noteText))
-//        Log.i("db", "note created $noteText")
-//    }
 }

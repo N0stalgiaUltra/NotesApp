@@ -1,5 +1,7 @@
 package com.example.notesapp.presentation
 
+import android.app.Application
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -49,6 +51,10 @@ class MainActivity : AppCompatActivity() {
                 setupRecyclerView()
             }
         }
+
+        binding.fabAddNote.setOnClickListener {
+            addButtonScreen()
+        }
     }
 
     override fun onResume() {
@@ -65,5 +71,13 @@ class MainActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(applicationContext, 1)
             adapter = cardAdapter
         }
+    }
+
+    private fun addButtonScreen(){
+        val intent = Intent(
+            applicationContext,
+            NewTaskActivity::class.java)
+
+        startActivity(intent)
     }
 }
