@@ -21,6 +21,6 @@ interface NoteDao {
     suspend fun deleteNote(note_id: Int)
 
     /*Edita somente o texto, talvez no futuro eu precise d outra chamada para cores(?)*/
-    @Query("UPDATE Note SET note_text= :text WHERE note_id = :note_id")
+    @Query("UPDATE Note SET note_text = :text WHERE note_id = :note_id")
     suspend fun editNote(note_id: Int, text: String)
 }

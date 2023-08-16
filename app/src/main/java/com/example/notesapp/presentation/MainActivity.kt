@@ -1,21 +1,16 @@
 package com.example.notesapp.presentation
 
-import android.app.Application
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.notesapp.data.local.database.AppDatabase
-import com.example.notesapp.data.local.database.dao.NoteDao
 import com.example.notesapp.data.local.database.model.Note
 import com.example.notesapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), CardOnClick {
@@ -59,8 +54,6 @@ class MainActivity : AppCompatActivity(), CardOnClick {
 
     override fun onResume() {
         super.onResume()
-
-        //IO para entrada e saida de dados
         CoroutineScope(Dispatchers.IO).launch {
             mainViewModel.getAllNotes()
         }
@@ -76,13 +69,14 @@ class MainActivity : AppCompatActivity(), CardOnClick {
     private fun addButtonScreen(){
         val intent = Intent(
             applicationContext,
-            NewTaskActivity::class.java)
+            NewNoteActivity::class.java)
 
         startActivity(intent)
     }
 
     override fun editNote(note: Note) {
         val intent = Intent(applicationContext, OpenNoteActivity::class.java)
+        Log.i("edit", "$note.text")
         intent.putExtra("note_text", note.text)
         intent.putExtra("note_id", note.id)
         startActivity(intent)

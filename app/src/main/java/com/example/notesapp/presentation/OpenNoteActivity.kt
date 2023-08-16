@@ -2,9 +2,10 @@ package com.example.notesapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.notesapp.R
 import com.example.notesapp.databinding.ActivityOpenNoteBinding
-import com.example.notesapp.databinding.NoteCardViewBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OpenNoteActivity : AppCompatActivity() {
@@ -27,20 +28,32 @@ class OpenNoteActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+
         binding.btnConfirmNote.setOnClickListener {
-            confirmEdit()
+            CoroutineScope(Dispatchers.IO).launch{
+                confirmEdit()
+            }
             finish()
         }
 
         binding.btnDeleteNote.setOnClickListener {
-            deleteNote()
+            CoroutineScope(Dispatchers.IO).launch{
+                removeNote()
+            }
             finish()
         }
-        //aqui entram as chamadas para os metodos da view model
     }
 
-    private fun deleteNote(){}
-    private fun confirmEdit(){}
+    private suspend fun removeNote(){
+        mainViewModel.removeNote(intent.getIntExtra("note_id", -1))
+    }
+    private suspend fun confirmEdit(){
+            mainViewModel.editNoteText(
+                id = intent.getIntExtra("note_id", -1),
+                text = binding.noteEditText.text.toString()
+            )
+
+    }
 
 
 

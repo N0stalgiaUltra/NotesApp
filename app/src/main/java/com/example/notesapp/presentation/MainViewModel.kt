@@ -19,4 +19,16 @@ class MainViewModel(private val dao: NoteDao): ViewModel() {
     suspend fun addNote(text: String){
         dao.insertNote(Note(text))
     }
+
+    suspend fun removeNote(id: Int){
+        dao.deleteNote(note_id = id)
+    }
+
+    suspend fun editNoteText(id: Int, text: String){
+        dao.editNote(
+            note_id = id,
+            text = text)
+    }
+
+
 }

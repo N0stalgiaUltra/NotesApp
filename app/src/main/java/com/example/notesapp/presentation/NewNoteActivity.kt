@@ -2,12 +2,7 @@ package com.example.notesapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import com.example.notesapp.R
-import com.example.notesapp.data.local.database.AppDatabase
-import com.example.notesapp.data.local.database.dao.NoteDao
-import com.example.notesapp.data.local.database.model.Note
 import com.example.notesapp.databinding.ActivityNewTaskBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NewTaskActivity : AppCompatActivity() {
+class NewNoteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNewTaskBinding
     private val mainViewModel: MainViewModel by viewModel()
@@ -38,7 +33,7 @@ class NewTaskActivity : AppCompatActivity() {
                 )
 
                 withContext(Dispatchers.Main){
-                    Toast.makeText(this@NewTaskActivity,
+                    Toast.makeText(this@NewNoteActivity,
                         "Create Note", Toast.LENGTH_SHORT)
                     finish()
                 }

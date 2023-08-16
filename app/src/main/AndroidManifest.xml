@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.NewTaskActivity"
+            android:name=".presentation.NewNoteActivity"
             android:exported="true" />
     </application>
 
