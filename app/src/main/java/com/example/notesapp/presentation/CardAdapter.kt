@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.data.local.database.model.Note
 import com.example.notesapp.databinding.NoteCardViewBinding
 
-class CardAdapter: RecyclerView.Adapter<CardViewHolder>() {
+class CardAdapter(private val cardOnClick: CardOnClick): RecyclerView.Adapter<CardViewHolder>() {
 
     private var _notes: List<Note>? = emptyList()
 
@@ -22,7 +22,7 @@ class CardAdapter: RecyclerView.Adapter<CardViewHolder>() {
         val from = LayoutInflater.from(parent.context)
         val binding = NoteCardViewBinding.inflate(from, parent, false)
 
-        return CardViewHolder(noteCardViewBinding = binding)
+        return CardViewHolder(noteCardViewBinding = binding, onClick = cardOnClick)
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +33,6 @@ class CardAdapter: RecyclerView.Adapter<CardViewHolder>() {
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val note = _notes?.get(position)
         if(note != null)
-            holder.bindText(note.text)
+            holder.bindText(note)
     }
 }

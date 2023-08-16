@@ -2,5 +2,6 @@
     <string name="app_name">NotesApp</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing.</string>
     <string name="edit_note_header">Edit Note</string>
-    <string name="edit_text">Aqui entre o texto que você quer editar</string>
+    <string name="edit_text">%1$s</string>
+    <string name="note_text">texto</string>
 </resources>

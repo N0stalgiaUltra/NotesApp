@@ -18,12 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintVertical_bias="0.5"
+        android:focusable="true">
 
         <TextView
             android:id="@+id/noteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/note_text"
             android:padding="16dp"
             android:textSize="20sp"
             />

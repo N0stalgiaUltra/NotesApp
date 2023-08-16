@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toTopOf="@+id/noteEditText"
         app:layout_constraintTop_toTopOf="parent"
 
-        android:background="">
+        android:background="#FFFFE0">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"

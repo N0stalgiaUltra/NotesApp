@@ -18,11 +18,11 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CardOnClick {
 
 
     private val mainViewModel: MainViewModel by viewModel()
-    private val cardAdapter: CardAdapter = CardAdapter()
+    private val cardAdapter: CardAdapter = CardAdapter(this)
     private lateinit var binding: ActivityMainBinding
 
 
@@ -78,6 +78,13 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             NewTaskActivity::class.java)
 
+        startActivity(intent)
+    }
+
+    override fun editNote(note: Note) {
+        val intent = Intent(applicationContext, OpenNoteActivity::class.java)
+        intent.putExtra("note_text", note.text)
+        intent.putExtra("note_id", note.id)
         startActivity(intent)
     }
 }

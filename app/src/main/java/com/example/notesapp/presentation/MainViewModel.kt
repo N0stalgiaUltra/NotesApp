@@ -17,6 +17,6 @@ class MainViewModel(private val dao: NoteDao): ViewModel() {
     }
 
     suspend fun addNote(text: String){
-        dao.insertTask(Note(text))
+        dao.insertNote(Note(text))
     }
 }
