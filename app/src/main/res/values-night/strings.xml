@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edit_note_header">Edit Note</string>
+    <string name="edit_text">Aqui entre o texto que você quer editar</string>
+</resources>
