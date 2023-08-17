@@ -10,7 +10,7 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper
 import com.example.notesapp.data.local.database.dao.NoteDao
 import com.example.notesapp.data.local.database.model.Note
 
-@Database(entities = [Note::class], version = 1)
+@Database(entities = [Note::class], version = 2)
 abstract class AppDatabase : RoomDatabase(){
     abstract fun taskDao(): NoteDao
 

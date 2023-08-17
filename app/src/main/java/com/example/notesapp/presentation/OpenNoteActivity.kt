@@ -2,6 +2,8 @@ package com.example.notesapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
+import com.example.notesapp.R
 import com.example.notesapp.databinding.ActivityOpenNoteBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +25,8 @@ class OpenNoteActivity : AppCompatActivity() {
         super.onStart()
         binding.noteEditText.setText(
             intent.getStringExtra("note_text"))
+
+        //binding.root.background.setTint(ContextCompat.getColor(this, R.color.note_green))
     }
 
     override fun onResume() {

@@ -16,8 +16,8 @@ class MainViewModel(private val dao: NoteDao): ViewModel() {
         _notesList.postValue(notes)
     }
 
-    suspend fun addNote(text: String){
-        dao.insertNote(Note(text))
+    suspend fun addNote(text: String, color: Int){
+        dao.insertNote(Note(text, color))
     }
 
     suspend fun removeNote(id: Int){
@@ -30,5 +30,11 @@ class MainViewModel(private val dao: NoteDao): ViewModel() {
             text = text)
     }
 
+    suspend fun editNoteColor(id: Int, color: Int){
+        dao.editNote(
+            note_id = id,
+            color = color
+        )
+    }
 
 }

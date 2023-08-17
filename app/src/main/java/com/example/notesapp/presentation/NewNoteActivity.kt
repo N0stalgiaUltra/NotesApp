@@ -3,6 +3,7 @@ package com.example.notesapp.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.notesapp.R
 import com.example.notesapp.databinding.ActivityNewTaskBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,10 +27,33 @@ class NewNoteActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
+        var noteColor = 0
+        this.binding.radioGroup.setOnCheckedChangeListener {
+                _,
+                color -> when(color){
+                R.id.rbYellow -> {
+                    noteColor = R.color.note_yellow
+                }
+
+                R.id.rbBlue -> {
+                    noteColor = R.color.note_blue
+                }
+
+                R.id.rbGreen -> {
+                    noteColor = R.color.note_green
+                }
+
+                R.id.rbRed -> {
+                    noteColor = R.color.note_red
+                }
+            }
+        }
+
         this.binding.btnCreateNote.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 val result = mainViewModel.addNote(
-                    binding.etNoteName.text.toString()
+                    binding.etNoteName.text.toString(),
+                    noteColor
                 )
 
                 withContext(Dispatchers.Main){
