@@ -26,7 +26,7 @@ class OpenNoteActivity : AppCompatActivity() {
         binding.noteEditText.setText(
             intent.getStringExtra("note_text"))
 
-        //binding.root.background.setTint(ContextCompat.getColor(this, R.color.note_green))
+        binding.root.setBackgroundColor(intent.getIntExtra("note_color", -1))
     }
 
     override fun onResume() {

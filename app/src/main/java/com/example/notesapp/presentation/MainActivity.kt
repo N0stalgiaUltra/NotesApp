@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity(), CardOnClick {
         Log.i("edit", "$note.text")
         intent.putExtra("note_text", note.text)
         intent.putExtra("note_id", note.id)
+        intent.putExtra("note_color", note.color)
         startActivity(intent)
     }
 }

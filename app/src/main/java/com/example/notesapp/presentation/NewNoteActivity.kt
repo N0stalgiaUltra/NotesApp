@@ -2,7 +2,9 @@ package com.example.notesapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.notesapp.R
 import com.example.notesapp.databinding.ActivityNewTaskBinding
 import kotlinx.coroutines.CoroutineScope
@@ -28,23 +30,30 @@ class NewNoteActivity : AppCompatActivity() {
         super.onStart()
 
         var noteColor = 0
-        this.binding.radioGroup.setOnCheckedChangeListener {
+        binding.radioGroup.setOnCheckedChangeListener {
                 _,
                 color -> when(color){
                 R.id.rbYellow -> {
-                    noteColor = R.color.note_yellow
+                    noteColor = ContextCompat.getColor(this, R.color.note_yellow)
+                    Log.i("color", "$noteColor")
                 }
 
                 R.id.rbBlue -> {
-                    noteColor = R.color.note_blue
+                    noteColor = ContextCompat.getColor(this, R.color.note_blue)
+                    Log.i("color", "$noteColor")
+
                 }
 
                 R.id.rbGreen -> {
-                    noteColor = R.color.note_green
+                    noteColor = ContextCompat.getColor(this, R.color.note_green)
+                    Log.i("color", "$noteColor")
+
                 }
 
                 R.id.rbRed -> {
-                    noteColor = R.color.note_red
+                    noteColor = ContextCompat.getColor(this, R.color.note_red)
+                    Log.i("color", "$noteColor")
+
                 }
             }
         }
