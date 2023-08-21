@@ -30,29 +30,26 @@ class NewNoteActivity : AppCompatActivity() {
         super.onStart()
 
         var noteColor = 0
-        binding.radioGroup.setOnCheckedChangeListener {
-                _,
-                color -> when(color){
+        binding.colorButtonsGroup.radioGroup.setOnCheckedChangeListener { _,
+                                                                          color ->
+            when (color) {
                 R.id.rbYellow -> {
                     noteColor = ContextCompat.getColor(this, R.color.note_yellow)
-                    Log.i("color", "$noteColor")
+
                 }
 
                 R.id.rbBlue -> {
                     noteColor = ContextCompat.getColor(this, R.color.note_blue)
-                    Log.i("color", "$noteColor")
 
                 }
 
                 R.id.rbGreen -> {
                     noteColor = ContextCompat.getColor(this, R.color.note_green)
-                    Log.i("color", "$noteColor")
 
                 }
 
                 R.id.rbRed -> {
                     noteColor = ContextCompat.getColor(this, R.color.note_red)
-                    Log.i("color", "$noteColor")
 
                 }
             }
@@ -64,6 +61,8 @@ class NewNoteActivity : AppCompatActivity() {
                     binding.etNoteName.text.toString(),
                     noteColor
                 )
+                Log.i("color", "$noteColor")
+
 
                 withContext(Dispatchers.Main){
                     Toast.makeText(this@NewNoteActivity,
@@ -73,6 +72,11 @@ class NewNoteActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    /*TODO: Abstrair metodo para Interface*/
+    private fun selectNoteColor() {
+
     }
 
 }

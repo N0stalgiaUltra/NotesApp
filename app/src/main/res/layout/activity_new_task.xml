@@ -42,42 +42,9 @@
             />
 
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rbYellow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Yellow"
-
-                />
-            <RadioButton
-                android:id="@+id/rbBlue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Blue"
-                />
-            <RadioButton
-                android:id="@+id/rbGreen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Green"
-                />
-            <RadioButton
-                android:id="@+id/rbRed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Red"
-                />
-        </RadioGroup>
+        <include
+            android:id="@+id/color_buttons_group"
+            layout="@layout/color_buttons" />
 
     </LinearLayout>
 

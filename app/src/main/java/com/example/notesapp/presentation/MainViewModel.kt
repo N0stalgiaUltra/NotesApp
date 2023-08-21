@@ -11,6 +11,7 @@ class MainViewModel(private val dao: NoteDao): ViewModel() {
     private val _notesList = MutableLiveData<List<Note>>()
     val notesList: LiveData<List<Note>> get() = _notesList
 
+
     suspend fun getAllNotes(){
         val notes = dao.getAllNotes()
         _notesList.postValue(notes)
@@ -24,13 +25,11 @@ class MainViewModel(private val dao: NoteDao): ViewModel() {
         dao.deleteNote(note_id = id)
     }
 
-    suspend fun editNoteText(id: Int, text: String){
+
+    suspend fun editNote(id: Int, text: String, color: Int){
         dao.editNote(
             note_id = id,
             text = text)
-    }
-
-    suspend fun editNoteColor(id: Int, color: Int){
         dao.editNote(
             note_id = id,
             color = color
