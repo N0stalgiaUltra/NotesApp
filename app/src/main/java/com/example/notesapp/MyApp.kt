@@ -2,6 +2,7 @@ package com.example.notesapp
 
 import android.app.Application
 import com.example.notesapp.di.databaseModule
+import com.example.notesapp.di.repositoryModule
 import com.example.notesapp.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -17,7 +18,8 @@ class MyApp: Application() {
             androidContext(this@MyApp)
             modules(
                 databaseModule,
-                viewModelModule
+                viewModelModule,
+                repositoryModule
             )
         }
     }
