@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.OpenNoteActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:id="@+id/openNoteActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
