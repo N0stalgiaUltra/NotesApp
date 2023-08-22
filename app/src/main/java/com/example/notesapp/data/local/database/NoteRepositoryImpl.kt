@@ -6,7 +6,8 @@ import com.example.notesapp.domain.NoteRepository
 
 class NoteRepositoryImpl(private val dao: NoteDao): NoteRepository {
     override suspend fun insert(note: Note) {
-        dao.insertNote(note = note)
+        if(!note.text.isNullOrEmpty() && note.color != 0)
+            dao.insertNote(note = note)
     }
 
     override suspend fun delete(note_id: Int) {
@@ -14,7 +15,8 @@ class NoteRepositoryImpl(private val dao: NoteDao): NoteRepository {
     }
 
     override suspend fun edit(note_id: Int, text: String) {
-        dao.editNote(note_id = note_id, text= text)
+        if(!text.isNullOrEmpty())
+            dao.editNote(note_id = note_id, text= text)
     }
 
     override suspend fun edit(note_id: Int, color: Int) {
