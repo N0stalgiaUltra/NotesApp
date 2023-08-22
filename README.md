@@ -42,3 +42,4 @@ Download the <a href="apk/app-debug.apk?raw=true">APK </a> directly from this re
 
 - Libraries  
   - [Koin](https://insert-koin.io/): Used for Dependency Injection
+  - [Junit](https://junit.org/junit5/) + [Mockito](https://site.mockito.org/): Used to create and run unit tests 
