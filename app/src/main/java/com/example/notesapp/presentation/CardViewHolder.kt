@@ -12,7 +12,6 @@ class CardViewHolder(
 ): RecyclerView.ViewHolder(noteCardViewBinding.root) {
 
     fun bindText(note: Note){
-        /*TODO: Usar String Resource para cada card*/
         noteCardViewBinding.noteTextView.text = note.text
         noteCardViewBinding.noteCardView.setCardBackgroundColor(note.color)
 

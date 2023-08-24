@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class OpenNoteActivity : AppCompatActivity() {
+class OpenNoteActivity : AppCompatActivity(), ColorButtonsOnClick{
 
     private lateinit var binding: ActivityOpenNoteBinding
     private val mainViewModel: MainViewModel by viewModel()
@@ -88,29 +88,8 @@ class OpenNoteActivity : AppCompatActivity() {
 
         alertDialog.show()
 
-        radioBinding.radioGroup.setOnCheckedChangeListener { radioGroup, color ->  when(color){
-                R.id.rbYellow -> {
-                    noteColor = ContextCompat.getColor(this, R.color.note_yellow)
-                    Log.i("note", "clicked")
-                }
-
-                R.id.rbBlue -> {
-                    noteColor = ContextCompat.getColor(this, R.color.note_blue)
-                    Log.i("color", "$noteColor")
-
-                }
-
-                R.id.rbGreen -> {
-                    noteColor = ContextCompat.getColor(this, R.color.note_green)
-                    Log.i("color", "$noteColor")
-
-                }
-
-                R.id.rbRed -> {
-                    noteColor = ContextCompat.getColor(this, R.color.note_red)
-                    Log.i("color", "$noteColor")
-                }
-            }
+        radioBinding.radioGroup.setOnCheckedChangeListener { radioGroup, color ->
+            noteColor = changeColor(color, this)
             Log.i("note", "new background $noteColor")
             binding.root.setBackgroundColor(noteColor)
         }
@@ -118,4 +97,5 @@ class OpenNoteActivity : AppCompatActivity() {
     }
 
 }
+
 
