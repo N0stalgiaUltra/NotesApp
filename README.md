@@ -14,14 +14,20 @@
   
 📖 This project was created to display my tech knowledge in native Android development with Kotlin. More techincal info below.
 
-Notes App is a native Android App made with Kotlin. The app is capable of getting information from a local, SQLite databanse, using Room; displaying the data (LiveData) in Note cards, inside a Recycler View; maintaining the model and view separation with MVVM and utilizing Clean Architecture and SOLID patterns to make the code clean, reusable and decoupled.
+Notes App is a native Android App made with Kotlin. The app is capable of doing CRUD(Create, Read, Update and Delete) operations thanks to Room (SQLite Database); displaying the data (LiveData) in Note cards, inside a Recycler View; maintaining the model and view separation with MVVM and utilizing Clean Architecture and SOLID patterns to make the code clean, reusable and decoupled.
 </p>
 
 </br>
 
+<p float="left" align="center">
+  <img alt="screenshot" width="30%" src="screenshots/Main_screen.png"/>
+  <img alt="screenshot" width="30%" src="screenshots/create_note.png"/>
+  <img alt="screenshot" width="30%" src="screenshots/open_note_scrren.png"/>
+</p>
+
 ## Download
 
-Download the <a href="apk/app-debug.apk?raw=true">APK </a> directly from this repo. You can check out <a href="https://www.google.com/search?q=how+to+install+apk+in+android">here</a> how to install an APK to your Android device.
+Download the <a href="https://github.com/N0stalgiaUltra/NotesApp/tree/main/apk">APK</a> directly from this repo. You can check out <a href="https://www.google.com/search?q=how+to+install+apk+in+android">here</a> how to install an APK to your Android device.
 
 ## Tech Stack
 
@@ -42,4 +48,44 @@ Download the <a href="apk/app-debug.apk?raw=true">APK </a> directly from this re
 
 - Libraries  
   - [Koin](https://insert-koin.io/): Used for Dependency Injection
-  - [Junit](https://junit.org/junit5/) + [Mockito](https://site.mockito.org/): Used to create and run unit tests 
+  - [Junit](https://junit.org/junit5/) + [Mockito](https://site.mockito.org/): Used to create and run unit tests
+  - [Espresso](https://developer.android.com/training/testing/espresso?hl=pt-br): Used to create and run instrumented/UI tests
+
+## Architecture
+**NotesApp** was built using MVVM, Clean Architecture and the Repository pattern. Following [Google´s official recomendation](https://developer.android.com/topic/architecture)
+</br>
+
+## Features
+
+### Notes Listing
+<img alt="screenshot" width="25%" src="screenshots/Main_screen.png"/>
+
+List all the created notes stored in the database. The list was created with CardView, Constraint Layout and Recycler View.
+
+
+### Add Note
+<img src="screenshots/createnotegid.gif" width="25%"/>
+
+Users can add as many notes as they want, specifying the text and the preferred color. This activity was created with Constraint Layout and Radio Group
+
+### Edit/Remove Note
+<img src="screenshots/editnote.gif" width="25%"/>
+
+Users also have the possibility to edit their notes, changing the text and color. Also, there´s a possibility to delete the note. Activity created with TopBar, Icon Buttons, Radio Group. 
+
+# License
+```xml
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
