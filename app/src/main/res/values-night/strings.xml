@@ -2,4 +2,5 @@
 <resources>
     <string name="edit_note_header">Edit Note</string>
     <string name="edit_text">Aqui entre o texto que você quer editar</string>
+    <string name="create_button_icon">Create button Icon</string>
 </resources>

@@ -6,4 +6,6 @@
     <string name="note_text">%1$s</string>
     <string name="btn_create_note">Create note</string>
     <string name="note_color">Choose the Note color:</string>
+    <string name="create_button_icon">Create button Icon</string>
+    <string name="empty_notes_text">To start, click on the button to create a note</string>
 </resources>
