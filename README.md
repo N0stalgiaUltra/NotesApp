@@ -27,6 +27,8 @@ Notes App is a native Android App made with Kotlin. The app is capable of doing 
 
 ## Download
 
+<a href='https://play.google.com/store/apps/details?id=com.n0stalgiaultra.notesapp'><img alt='Disponível no Google Play' width="15%" src='https://play.google.com/intl/en_us/badges/static/images/badges/pt_badge_web_generic.png'/></a>
+
 Download the <a href="https://github.com/N0stalgiaUltra/NotesApp/tree/main/apk">APK</a> directly from this repo. You can check out <a href="https://www.google.com/search?q=how+to+install+apk+in+android">here</a> how to install an APK to your Android device.
 
 ## Tech Stack
