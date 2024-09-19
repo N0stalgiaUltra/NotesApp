@@ -1,5 +1,6 @@
 package com.n0stalgiaultra.notesapp.presentation.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,8 @@ import com.n0stalgiaultra.notesapp.R
 import com.n0stalgiaultra.notesapp.databinding.FragmentNewNoteBinding
 import com.n0stalgiaultra.notesapp.presentation.ColorButtonsOnClick
 import com.n0stalgiaultra.notesapp.presentation.MainViewModel
+import com.n0stalgiaultra.notesapp.presentation.broadcastreciever.NoteReceiver
+import com.n0stalgiaultra.notesapp.presentation.service.NoteService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -46,18 +49,15 @@ class NewNoteFragment : Fragment(), ColorButtonsOnClick {
     }
 
     private fun createNote(noteColor: Int) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val result = mainViewModel.addNote(
-                binding.etNoteName.text.toString(),
-                noteColor
-            )
-            Log.d("color", "$noteColor")
-
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), "Nota criada com sucesso", Toast.LENGTH_SHORT).show()
-                requireActivity().supportFragmentManager.popBackStack()
-            }
+        val intent = Intent(requireContext(), NoteReceiver::class.java).apply {
+            action = "ADD_NOTE"
+            putExtra("note_text", binding.etNoteName.text.toString())
+            putExtra("note_color", noteColor)
         }
+        requireContext().sendBroadcast(intent)
+
+        // Navegue de volta ao MainFragment após criar a nota
+        requireActivity().supportFragmentManager.popBackStack()
     }
 
     override fun onDestroyView() {

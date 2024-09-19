@@ -1,6 +1,9 @@
 package com.n0stalgiaultra.notesapp.presentation
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -47,7 +50,20 @@ class MainFragment : Fragment(), CardOnClick {
         }
     }
 
+    private val noteAddedReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            // Atualizar a UI, por exemplo, chamando getAllNotes() novamente
+            CoroutineScope(Dispatchers.IO).launch {
+                mainViewModel.getAllNotes()
+            }
+        }
+    }
 
+    override fun onStart() {
+        super.onStart()
+        val filter = IntentFilter("NOTE_ADDED")
+        requireActivity().registerReceiver(noteAddedReceiver, filter)
+    }
     override fun onResume() {
         super.onResume()
         CoroutineScope(Dispatchers.IO).launch {
@@ -99,6 +115,11 @@ class MainFragment : Fragment(), CardOnClick {
             .commit()
     }
 
+    override fun onStop() {
+        super.onStop()
+        requireActivity().unregisterReceiver(noteAddedReceiver)
+
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
