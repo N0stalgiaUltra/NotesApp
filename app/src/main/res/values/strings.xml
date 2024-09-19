@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NotesApp</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing.</string>
+    <string name="edit_note_header">Edit Note</string>
+    <string name="edit_text">%1$s</string>
+    <string name="note_text">%1$s</string>
+    <string name="btn_create_note">Create note</string>
+    <string name="note_color">Choose the Note color:</string>
+    <string name="create_button_icon">Create button Icon</string>
+    <string name="empty_notes_text">To start, click on the button to create a note</string>
+</resources>
