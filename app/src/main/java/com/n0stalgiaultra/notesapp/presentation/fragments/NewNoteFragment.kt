@@ -54,8 +54,8 @@ class NewNoteFragment : Fragment(), ColorButtonsOnClick {
             Log.d("color", "$noteColor")
 
             withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), "Create Note", Toast.LENGTH_SHORT).show()
-                // Adicione código para navegar de volta ou limpar campos, se necessário
+                Toast.makeText(requireContext(), "Nota criada com sucesso", Toast.LENGTH_SHORT).show()
+                requireActivity().supportFragmentManager.popBackStack()
             }
         }
     }

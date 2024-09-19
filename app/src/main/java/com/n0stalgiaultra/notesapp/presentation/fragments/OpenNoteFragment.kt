@@ -50,14 +50,14 @@ class OpenNoteFragment : Fragment(), ColorButtonsOnClick {
             lifecycleScope.launch(Dispatchers.IO) {
                 confirmEdit()
             }
-            requireActivity().finish() // Finaliza a atividade, se necessário
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         binding.btnDeleteNote.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
                 removeNote()
             }
-            requireActivity().finish() // Finaliza a atividade, se necessário
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 
